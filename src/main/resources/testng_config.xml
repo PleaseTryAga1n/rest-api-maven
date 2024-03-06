@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Demo Test Suite for Weather API" parallel="classes" thread-count="30" data-provider-thread-count="30">
+
+    <test name="Demo Tests for Weather API" parallel="methods" thread-count="30">
+        <groups>
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="org.personal.project.tests.*"/>
+        </packages>
+    </test>
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+</suite>
+
+
