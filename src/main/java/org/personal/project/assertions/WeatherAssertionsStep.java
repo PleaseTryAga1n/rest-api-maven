@@ -1,23 +1,18 @@
 package org.personal.project.assertions;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import lombok.experimental.UtilityClass;
 import org.apache.http.HttpStatus;
 import org.personal.project.models.weatherresponse.WeatherResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@Component
+@UtilityClass
 public class WeatherAssertionsStep {
 
-    @Autowired
-    ObjectMapper objectMapper;
-
     @Step("Checking weather")
-    public void checkCurrentWeatherResponse(Response actualResponse, String expectedCountry) {
+    public static void checkCurrentWeatherResponse(Response actualResponse, String expectedCountry) {
         assertThat(actualResponse.getStatusCode()).isEqualTo(HttpStatus.SC_OK);
 
         WeatherResponse weatherResponse = actualResponse.getBody().as(WeatherResponse.class);

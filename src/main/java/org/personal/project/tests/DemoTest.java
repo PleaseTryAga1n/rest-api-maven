@@ -3,6 +3,7 @@ package org.personal.project.tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Issue;
 import io.restassured.response.Response;
+import org.personal.project.assertions.WeatherAssertionsStep;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,8 @@ public class DemoTest extends BaseTest {
     @Test(groups = "all", dataProvider = "locationDataProvider")
     @Description("Test to verify current weather endpoint by city name")
     public void getCurrentWeatherTest(String cityName, String expectedCountry) {
+
         Response currWeatherResponse = weatherApiStep.getWeatherData(cityName);
-        weatherAssertionsStep.checkCurrentWeatherResponse(currWeatherResponse, expectedCountry);
+        WeatherAssertionsStep.checkCurrentWeatherResponse(currWeatherResponse, expectedCountry);
     }
 }

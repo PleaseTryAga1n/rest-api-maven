@@ -1,14 +1,4 @@
-spring:
-  application:
-    name: weather-api-tests
-  profiles:
-    active: qa
-
-info:
-  description: QA configuration
-profile: qa
-
 #Should not be here, but for the template
-weatherApi:
+weatherAPI:
   apiKey: 0c5af035fdmsh6691fb027b9e11bp179187jsnddcfa780c7fe
   apiHost: weatherapi-com.p.rapidapi.com
